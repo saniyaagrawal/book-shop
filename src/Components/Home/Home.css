@@ -1,0 +1,29 @@
+.home {
+  padding-left: 2%;
+  color: black;
+}
+
+.genre {
+  margin-top: 3%;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.cards {
+  /* display: inline; */
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.cards::-webkit-scrollbar{
+  display:none;
+}
+
+.heading {
+  color: black;
+}
