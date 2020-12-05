@@ -1,3 +1,8 @@
 .ed_button {
   justify-self: right;
 }
+
+.image_card{
+  /* align-items: initial; */
+  justify-content: flex-end;
+}
