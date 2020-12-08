@@ -38,3 +38,14 @@
   padding-right: 60%;
   padding-top: 2%;
 }
+
+.textbox{
+  /* border-radius: 3%; */
+  height: 35px;
+  width: 30%;
+  border-width: 0px;
+}
+
+::placeholder{
+  margin-left: 20px;
+}

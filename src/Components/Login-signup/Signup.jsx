@@ -46,6 +46,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Name"
                 name="name"
+                className="textbox"
                 // value={name}
                 // onChange={onChange}
               />
@@ -55,6 +56,7 @@ const Signup = () => {
                 type="email"
                 placeholder="Email Address"
                 name="email"
+                className="textbox"
                 // value={email}
                 // onChange={onChange}
               />
@@ -64,6 +66,7 @@ const Signup = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
+                className="textbox"
                 // value={password}
                 // onChange={onChange}
               />
@@ -73,6 +76,7 @@ const Signup = () => {
                 type="password"
                 placeholder="Confirm Password"
                 name="password2"
+                className="textbox"
                 // value={password2}
                 // onChange={onChange}
               />

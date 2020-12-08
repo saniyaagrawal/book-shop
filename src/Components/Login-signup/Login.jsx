@@ -33,6 +33,7 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
+                className="textbox"
                 // value={password}
                 // onChange={onChange}
                 minLength="6"

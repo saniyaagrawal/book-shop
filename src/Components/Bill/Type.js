@@ -21,7 +21,7 @@ console.log('hi')
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={()=>setType(2)}
+                    onClick={handleSubmit}
                     className='button'
                     style={{backgroundColor:'pink', marginTop: 30}}
                 >
@@ -30,7 +30,7 @@ console.log('hi')
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={()=>setType(3)}
+                    onClick={handleSubmit}
                     className='button'
                     style={{backgroundColor:'pink', marginTop: 30}}
                 >
