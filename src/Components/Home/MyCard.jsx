@@ -22,22 +22,13 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 300,
+    minWidth: 250
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
   },
-  // expand: {
-  //   transform: 'rotate(0deg)',
-  //   marginLeft: 'auto',
-  //   transition: theme.transitions.create('transform', {
-  //   duration: theme.transitions.duration.shortest,
-  //   }),
-  // },
-  // expandOpen: {
-  //   transform: 'rotate(180deg)',
-  // },
   avatar: {
     backgroundColor: blue[700],
   },
@@ -62,21 +53,26 @@ const MyCard = ({id, book, flag}) => {
 
   return (
 
-      <div>
-        <Card className={classes.root}>
+      <div className='card'>
+    <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            C
-          </Avatar>
-        }
+        // avatar={
+        //   <Avatar aria-label="recipe" className={classes.avatar}>
+        //     R
+        //   </Avatar>
+        // }
         action={
-          <IconButton aria-label="settings">
-            <ShoppingCartIcon />
+          <div className='icons'>
+          <IconButton aria-label="edit">
+            <EditIcon />
           </IconButton>
+          <IconButton aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
+          </div>
         }
-        title="Book Name"
-        subheader="Author Name"
+        title="Book name"
+        subheader="Authore Name"
       />
       <CardMedia
         className={classes.media}
@@ -88,26 +84,8 @@ const MyCard = ({id, book, flag}) => {
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like.
         </Typography>
-        <div style={{display:'flex', justifyContent:'space-between', alignItems: 'center'}}>
-          <div>
-          <IconButton aria-label="add to favorites">
-            <EditIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <DeleteIcon />
-          </IconButton>
-          </div>
-          Rs.500
-        </div>
       </CardContent>
-      {/* <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <EditIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <DeleteIcon />
-        </IconButton>
-      </CardActions> */}
+
     </Card>
   </div>
   );

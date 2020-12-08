@@ -27,14 +27,14 @@ const Signup = () => {
   const { name, email, password, password2 } = formData;
   return (
     <>
-      <>
+      <div className="background signup_page">
         <center>
           <br></br>
           <br></br>
           <br></br>
           <br></br>
           <h1 className="large text-primary">
-            <div class="largein">Sign Up</div>
+            <div class="largein head">Sign Up</div>
           </h1>
           <p className="lead">
             <i className="fas fa-user" />{" "}
@@ -85,7 +85,7 @@ const Signup = () => {
             <Link to="/login">Sign In</Link>
           </p>
         </center>
-      </>
+        </div>
     </>
   );
 };

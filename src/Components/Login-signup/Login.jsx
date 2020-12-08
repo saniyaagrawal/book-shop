@@ -6,9 +6,10 @@ import "./login.css";
 const Login = () => {
   return (
     <>
-      <center>
+      <div className="background login_page">
+        <center>
         <div className="login-page">
-          <h1 className="large text-primary">
+          <h1 className="large head">
             <div class="largein">Sign In</div>
           </h1>
           <p className="lead">
@@ -21,6 +22,7 @@ const Login = () => {
                 type="email"
                 placeholder="Email Address"
                 name="email"
+                className="textbox"
                 // value={email}
                 // onChange={onChange}
                 required
@@ -40,12 +42,13 @@ const Login = () => {
           </form>
           <br></br>
           <br></br>
-          <p className="my-1">
+          <p className="mb-1">
             <div class="largein"> Don't have an account?</div>{" "}
             <Link to="/signup">Sign Up</Link>
           </p>
         </div>
-      </center>
+        </center>
+      </div>
     </>
   );
 };

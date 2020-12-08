@@ -24,3 +24,17 @@
   color: rgb(255, 255, 251);
   padding-bottom: 3.5%;
 }
+
+.login_page{
+  padding-right: 60%;
+  padding-top: 10%;
+}
+
+.head{
+  color: rgb(77, 156, 247);
+}
+
+.signup_page{
+  padding-right: 60%;
+  padding-top: 2%;
+}

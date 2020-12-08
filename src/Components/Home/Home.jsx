@@ -30,7 +30,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    // <>
       <div className="narrow home">
         <div className="search">
           <Paper component="form">
@@ -50,15 +50,10 @@ const Home = () => {
           <div className="genre">
             <h1 className="heading">Classics</h1>
             <div className="cards">
-              <MyCard key="1" id="1" book={books[0]} flag />
-              <MyCard key="2" id="2" book={books[0]} flag />
-              <MyCard key="3" id="3" book={books[0]} />
-              <MyCard key="4" id="4" book={books[0]} />
-              {/* <MyCard id="1" book={books[0]} />
-              <MyCard id="1" book={books[0]} />
-              <MyCard id="1" book={books[0]} />
-              <MyCard id="1" book={books[0]} />
-              <MyCard id="1" book={books[0]} /> */}
+              <div className='single_card'><MyCard key="1" id="1" book={books[0]} flag /></div>
+              <div className='single_card'><MyCard key="2" id="2" book={books[0]} flag /></div>
+              <div className='single_card'><MyCard key="3" id="3" book={books[0]} /></div>
+              <div className='single_card'><MyCard key="4" id="4" book={books[0]} /></div>
             </div>
           </div>
           <div className="genre">
@@ -81,7 +76,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    // </>
   );
 };
 export default Home;

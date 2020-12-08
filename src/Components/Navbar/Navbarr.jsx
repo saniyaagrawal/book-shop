@@ -28,6 +28,12 @@ const Navbarr = (props) => {
             <NavItem>
               <Link to="/add" style={{textDecoration:'none'}}><h4 className='nav'>Add book</h4></Link>
             </NavItem>
+            <NavItem>
+              <Link to="/bill" style={{textDecoration:'none'}}><h4 className='nav'>Bill</h4></Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/login" style={{textDecoration:'none'}}><h4 className='nav'>Login</h4></Link>
+            </NavItem>
           </Nav>
           {/* {!isOpen && <NavbarText style={{paddingRight:10}}>{user?.displayName}</NavbarText>}
           {!isOpen && <Avatar src={user?.photoURL} />} */}
