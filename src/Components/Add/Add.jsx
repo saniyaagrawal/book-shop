@@ -9,6 +9,10 @@ const Add = () => {
   const [detail, setDetail] = useState("");
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState("");
+  const [quantity_issue, setQuantity_issue] = useState("");
+  const [quantity_purchase, setQuantity_purchase] = useState("");
+  const [genre, setGenre] = useState("");
+  const [shelf, setShelf] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,7 +52,7 @@ const Add = () => {
               <div className="add_input">
                 <TextField
                   id="outlined-basic"
-                  label="Duration"
+                  label="Author"
                   variant="outlined"
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
@@ -64,6 +68,54 @@ const Add = () => {
                   variant="outlined"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="add_row">
+              <h3 className="add_name">Quantity(Purchase) : </h3>
+              <div className="add_input">
+                <TextField
+                  id="outlined-basic"
+                  label="Purchase"
+                  variant="outlined"
+                  value={quantity_purchase}
+                  onChange={(e) => setQuantity_purchase(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="add_row">
+              <h3 className="add_name">Quantity(Issue) : </h3>
+              <div className="add_input">
+                <TextField
+                  id="outlined-basic"
+                  label="Issue"
+                  variant="outlined"
+                  value={quantity_issue}
+                  onChange={(e) => setQuantity_issue(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="add_row">
+              <h3 className="add_name">Genre : </h3>
+              <div className="add_input">
+                <TextField
+                  id="outlined-basic"
+                  label="Genre"
+                  variant="outlined"
+                  value={genre}
+                  onChange={(e) => setGenre(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="add_row">
+              <h3 className="add_name">Shelf Number : </h3>
+              <div className="add_input">
+                <TextField
+                  id="outlined-basic"
+                  label="Shelf Number"
+                  variant="outlined"
+                  value={shelf}
+                  onChange={(e) => setShelf(e.target.value)}
                 />
               </div>
             </div>
