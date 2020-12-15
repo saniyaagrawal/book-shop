@@ -11,3 +11,12 @@
   padding-left: 20px;
   padding-right: 20px;
 } */
+
+.shelf{
+  color: gray;
+  margin-right: 5px;
+  /* padding-top: 20px; */
+}
+.price{
+  padding-top: 5px;
+}

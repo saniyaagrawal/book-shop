@@ -49,3 +49,36 @@
 ::placeholder{
   margin-left: 20px;
 }
+
+.add_form {
+  padding-left: 5%;
+  overflow-y: hidden;
+}
+
+.add_row {
+  display: flex;
+  /* justify-content: space-between; */
+  /* padding-right: 50%; */
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 3%;
+}
+
+.add_name {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: #070f14;
+}
+
+.add_input {
+  padding-left: 3%;
+}
+
+.add_button {
+  cursor: pointer;
+  margin-top: 2%;
+  background-color: hsl(209, 87%, 65%);
+  border-radius: 0.4rem;
+  border-color: black;
+  font-size: 110%;
+  height: 4%;
+}
