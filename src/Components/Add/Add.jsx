@@ -24,7 +24,7 @@ const Add = () => {
         <form noValidate autoComplete="off">
           <div className="add_form">
             <div className="add_row">
-              <h3 className="add_name">Name of the book:</h3>
+              <h1 className="add_name">Name of the book:</h1>
               <div className="add_input">
                 <TextField
                   id="outlined-basic"
