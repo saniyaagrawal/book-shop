@@ -1,9 +1,10 @@
-import { Button, Modal } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import React, { useEffect, useState } from "react";
 import "./Bill.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import My_Modal from './Modal';
 
 const LOCAL_STORAGE_KEY = "react-todo-list-todos";
 
@@ -58,6 +59,7 @@ function Bill() {
         removeTodo={removeTodo}
         toggleComplete={toggleComplete}
       />
+      <My_Modal />
     </div>
   );
   
