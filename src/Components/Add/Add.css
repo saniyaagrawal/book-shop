@@ -21,11 +21,11 @@
   /* padding-right: 50%; */
   flex-wrap: wrap;
   align-items: center;
-  padding-top: 1%;
+  margin-top: -1%;
 }
 
 .add_name {
-  font-size: medium;
+  font-size: large;
   font-family: Comic Sans MS, Comic Sans, cursive;
   color: #070f14;
 }
@@ -36,10 +36,10 @@
 
 .add_button {
   cursor: pointer;
-  margin-top: 2%;
+  /* margin-top: 1%; */
   background-color: hsl(209, 87%, 65%);
   border-radius: 0.4rem;
   border-color: black;
   font-size: 110%;
-  height: 4%;
+  height: 2%;
 }
