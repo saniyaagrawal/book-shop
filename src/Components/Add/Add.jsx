@@ -2,20 +2,41 @@ import React, { useState } from "react";
 import { TextField } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import Button from "@material-ui/core/Button";
+import axios from 'axios';
 import "./Add.css";
 
 const Add = () => {
   const [name, setName] = useState("");
-  const [detail, setDetail] = useState("");
+  const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState("");
-  const [quantity_issue, setQuantity_issue] = useState("");
-  const [quantity_purchase, setQuantity_purchase] = useState("");
+  const [quantityIssue, setQuantityIssue] = useState("");
+  const [quantityPurchase, setQuantityPurchase] = useState("");
   const [genre, setGenre] = useState("");
-  const [shelf, setShelf] = useState("");
+  const [shelf_number, setShelf_number] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const store_id=1;
+    const book = {
+      name,
+      description,
+      author,
+      price,
+      quantityIssue,
+      quantityPurchase,
+      genre,
+      shelf_number, 
+      store_id
+    };
+
+    axios
+      .post('http://localhost:3001/add', book)
+      .then(() => console.log(book))
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   return (
@@ -36,19 +57,19 @@ const Add = () => {
               </div>
             </div>
             <div className="add_row">
-              <h3 className="add_name">Details of the book:</h3>
+              <h3 className="add_name">Description: </h3>
               <div className="add_input">
                 <TextField
                   id="outlined-basic"
                   label="Details"
                   variant="outlined"
-                  value={detail}
-                  onChange={(e) => setDetail(e.target.value)}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
             </div>
             <div className="add_row">
-              <h3 className="add_name">Author of the book:</h3>
+              <h3 className="add_name">Author:</h3>
               <div className="add_input">
                 <TextField
                   id="outlined-basic"
@@ -60,7 +81,7 @@ const Add = () => {
               </div>
             </div>
             <div className="add_row">
-              <h3 className="add_name">Price of the book : </h3>
+              <h3 className="add_name">Price: </h3>
               <div className="add_input">
                 <TextField
                   id="outlined-basic"
@@ -78,8 +99,8 @@ const Add = () => {
                   id="outlined-basic"
                   label="Purchase"
                   variant="outlined"
-                  value={quantity_purchase}
-                  onChange={(e) => setQuantity_purchase(e.target.value)}
+                  value={quantityPurchase}
+                  onChange={(e) => setQuantityPurchase(e.target.value)}
                 />
               </div>
             </div>
@@ -90,8 +111,8 @@ const Add = () => {
                   id="outlined-basic"
                   label="Issue"
                   variant="outlined"
-                  value={quantity_issue}
-                  onChange={(e) => setQuantity_issue(e.target.value)}
+                  value={quantityIssue}
+                  onChange={(e) => setQuantityIssue(e.target.value)}
                 />
               </div>
             </div>
@@ -114,12 +135,13 @@ const Add = () => {
                   id="outlined-basic"
                   label="Shelf Number"
                   variant="outlined"
-                  value={shelf}
-                  onChange={(e) => setShelf(e.target.value)}
+                  value={shelf_number}
+                  onChange={(e) => setShelf_number(e.target.value)}
                 />
               </div>
             </div>
             <div className="add_row">
+              
               <Button
                 variant="contained"
                 color="primary"
