@@ -1,0 +1,59 @@
+.Bill {
+    text-align: center;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  body,
+  html,
+  #root {
+    height: 100%;
+  }
+  
+  .todo-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  li {
+    text-align: initial;
+  }
+  
+  .Bill-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .Bill-logo {
+      animation: Bill-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .Bill-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .Bill-link {
+    color: #61dafb;
+  }
+  
+  @keyframes Bill-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
