@@ -4,20 +4,38 @@ import React, { useEffect, useState } from "react";
 import "./Bill.css";
 import SaveIcon from "@material-ui/icons/Save";
 import My_Modal from './Modal';
+import axios from 'axios';
 
-const LOCAL_STORAGE_KEY = "react-todo-list-todos";
-
-function Bill() {
+function Bill({ handleSubmit, setObject, object }) {
   
-  
+   const handleSubmitt =()=>{
+      // handleSubmit()
+      var newObj=object;
+      var today = new Date();
+   //  this.onemonth=new Date(new Date().setDate(today.getDate()-30));
+      newObj.time=2;
+      newObj.store_id=localStorage.getItem("store_id");
+      // newObj.total=
 
+      setObject(newObj);
+      
+      // console.log(today)
+
+      axios
+      .post('http://localhost:3001/bill', object)
+      .then(() => console.log(object))
+      .catch(err => {
+        console.error(err);
+      });
+    }
+   // console.log(object);
   return (
-    <div className="background" >
+    <div className='bill_back'>
       <Typography style={{ padding: 16 }} variant="h3">
         Bill Screen
       </Typography>
 
-      <My_Modal />
+      <My_Modal object={object} setObject={setObject} />
       <div className="add_row">
               
               {/* <Link to="/"> */}
@@ -26,6 +44,7 @@ function Bill() {
                 color="primary"
                 size="large"
                 startIcon={<SaveIcon />}
+                onClick={handleSubmitt}
               >
                 Save
               </Button>
@@ -42,6 +61,16 @@ function Bill() {
                      </tr>
                   </thead>
                   <tbody>
+                      {object.books.map((x)=>(
+                        <div>
+                        <th scope="row">1</th>
+                        <td>{x.book_id}</td>
+                        {/* <td>{x.quantity}</td> */}
+                        {/* <td>{x.price}</td> */}
+                        </div>
+                       
+                        ))}
+                    
                      <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>

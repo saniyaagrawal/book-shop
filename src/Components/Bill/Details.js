@@ -4,11 +4,21 @@ import SaveIcon from "@material-ui/icons/Save";
 import Button from "@material-ui/core/Button";
 import "./Details.css";
 
-const Details = ({ handleSubmit }) => {
+const Details = ({ handleSubmit, setObject, object }) => {
   const [name, setName] = useState("");
-  const [detail, setDetail] = useState("");
-  const [author, setAuthor] = useState("");
+  const [mobile_no, setMobile_no] = useState("");
+  const [email, setEmail] = useState("");
   // const [price, setPrice] = useState("");
+
+  const handleSubmitt =()=>{
+    handleSubmit()
+    var newObj=object;
+    newObj.customer.name=name;
+    newObj.customer.mobile_no=mobile_no;
+    newObj.customer.email_id=email;
+    setObject(newObj);
+    // console.log(object)
+  }
 
   return (
     <>
@@ -36,8 +46,8 @@ const Details = ({ handleSubmit }) => {
                   id="outlined-basic"
                   label="Mobile No."
                   variant="outlined"
-                  value={detail}
-                  onChange={(e) => setDetail(e.target.value)}
+                  value={mobile_no}
+                  onChange={(e) => setMobile_no(e.target.value)}
                   required
                 />
               </div>
@@ -47,10 +57,10 @@ const Details = ({ handleSubmit }) => {
               <div className="add_input">
                 <TextField
                   id="outlined-basic"
-                  label="Duration"
+                  label="Email"
                   variant="outlined"
-                  value={author}
-                  onChange={(e) => setAuthor(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -61,7 +71,7 @@ const Details = ({ handleSubmit }) => {
                 color="primary"
                 size="large"
                 startIcon={<SaveIcon />}
-                onClick={handleSubmit}
+                onClick={handleSubmitt}
               >
                 Save
               </Button>

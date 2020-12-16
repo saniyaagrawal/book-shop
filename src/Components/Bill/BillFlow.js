@@ -14,28 +14,20 @@ const BillFlow = () => {
           mobile_no:"",
           email_id:""
       },
-      books:[
-          {
-            book_id:"",
-            quantity:0,
-            security_money:"",
-          },
-          {
-            book_id:"",
-            quantity:0,
-            security_money:"",
-          }
-      ],
+      books:[{
+        book_id:"1",
+        quantity:"1"
+      }],
       type:"purchase",
       total:0,
       time:"",
       store_id:1,
   });
 
-  const changeObject=()=>{
-    // setObject({ ...object, [key]: value });
-    console.log('hi')
-  }
+  // const changeObject=()=>{
+  //   // setObject({ ...object, [key]: value });
+  //   console.log('hi')
+  // }
   
   const handleSubmit = () => {
     if(screen===1)setScreen(2);
@@ -45,10 +37,10 @@ const BillFlow = () => {
 
   return (
     <>
-      <div className="background">
-          {screen===1 ? <Type handleSubmit={()=>handleSubmit()} changeObject={()=>changeObject()} /> 
-          : screen===2 ? <Details handleSubmit={()=>handleSubmit()} changeObject={()=>changeObject()} /> 
-          : <Bill handleSubmit={()=>handleSubmit} changeObject={()=>changeObject()} />}
+      <div>
+          {screen===1 ? <Type handleSubmit={()=>handleSubmit()} object={object} setObject={setObject} /> 
+          : screen===2 ? <Details handleSubmit={()=>handleSubmit()} object={object} setObject={setObject} /> 
+          : <Bill handleSubmit={()=>handleSubmit} object={object} setObject={setObject} />}
       </div>
     </>
   );

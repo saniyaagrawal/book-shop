@@ -13,20 +13,21 @@ const Login = () => {
 
   const { email, password } = formData;
 
-
-
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log('hi')
     axios
       .post('http://localhost:3001/login', formData)
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        localStorage.setItem("store_id",response.data[0].store_id)
+        alert('You are logged in')
+      })
       .catch(err => {
         alert('Invalid Login');
       });
-    
   };
   
   return (
@@ -66,7 +67,7 @@ const Login = () => {
               />
             </div>
             <Link to='/'>
-             <div className="btn btn-primary" onChange={handleSubmit}>
+             <div className="btn btn-primary" onClick={handleSubmit}>
                Login
                </div>
             </Link>

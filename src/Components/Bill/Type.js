@@ -2,13 +2,17 @@ import React, { useState } from "react";
  import "./Type.css";
 import { Button } from '@material-ui/core';
 
-const Type = ({ handleSubmit, changeObject }) => {
-  const [type, setType] = useState(1);
+const Type = ({ handleSubmit, setObject, object }) => {
+  // const [type, setType] = useState(1);
 
-  // const buttonClick =(value)=>{
-  //   handleSubmit
-  //   changeObject
-  // }
+  const buttonClick =(value)=>{
+    // console.log(value)
+    handleSubmit()
+    var newObj=object;
+    newObj.type=value;
+    setObject(newObj);
+    // console.log(object)
+  }
 
   return (
     <>
@@ -17,7 +21,7 @@ const Type = ({ handleSubmit, changeObject }) => {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleSubmit}
+                    onClick={()=>buttonClick('purchase')}
                     className='button'
                     style={{backgroundColor:'pink'}}
                 >
@@ -26,7 +30,7 @@ const Type = ({ handleSubmit, changeObject }) => {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleSubmit}
+                    onClick={()=>buttonClick('issue')}
                     className='button'
                     style={{backgroundColor:'pink', marginTop: 30}}
                 >
@@ -35,7 +39,7 @@ const Type = ({ handleSubmit, changeObject }) => {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleSubmit}
+                    onClick={buttonClick}
                     className='button'
                     style={{backgroundColor:'pink', marginTop: 30}}
                 >

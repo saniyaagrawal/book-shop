@@ -34,7 +34,7 @@ const Add = () => {
 
     axios
       .post('http://localhost:3001/add', book)
-      .then(() => {})
+      .then(() => alert('Book succesfully added.'))
       .catch(err => {
         console.error(err);
       });
@@ -149,11 +149,11 @@ const Add = () => {
               </div>
             </div>
             <div className="add_row">
-            <Link to='/'>
-             <div className="btn btn-primary" onChange={handleSubmit}>
+            {/* <Link to='/'> */}
+             <div className="btn btn-primary" style={{backgroundColor:'pink'}} onClick={handleSubmit}>
                Save
-               </div>
-            </Link>
+              </div>
+            {/* </Link> */}
             </div>
           </div>
         </form>
