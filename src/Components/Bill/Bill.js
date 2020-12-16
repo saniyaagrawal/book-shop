@@ -2,64 +2,75 @@ import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import React, { useEffect, useState } from "react";
 import "./Bill.css";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
+import SaveIcon from "@material-ui/icons/Save";
 import My_Modal from './Modal';
 
 const LOCAL_STORAGE_KEY = "react-todo-list-todos";
 
 function Bill() {
   
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    // fires when app component mounts to the DOM
-    const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (storageTodos) {
-      setTodos(storageTodos);
-    }
-  }, []);
-
-  useEffect(() => {
-    // fires when todos array gets updated
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
-  }, [todos]);
-
-  function addTodo(todo) {
-    // adds new todo to beginning of todos array
-    setTodos([todo, ...todos]);
-  }
-
-  function toggleComplete(id) {
-    setTodos(
-      todos.map(todo => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed
-          };
-        }
-        return todo;
-      })
-    );
-  }
-
-  function removeTodo(id) {
-    setTodos(todos.filter(todo => todo.id !== id));
-  }
+  
 
   return (
-    <div className="App">
-      <Typography style={{ padding: 16 }} variant="h1">
-        React Todo
+    <div className="background" >
+      <Typography style={{ padding: 16 }} variant="h3">
+        Bill Screen
       </Typography>
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        removeTodo={removeTodo}
-        toggleComplete={toggleComplete}
-      />
+
       <My_Modal />
+      <div className="add_row">
+              
+              {/* <Link to="/"> */}
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                startIcon={<SaveIcon />}
+              >
+                Save
+              </Button>
+              {/* </Link> */}
+            </div>
+            <div class="billtable">
+               <table class="table table-dark table-striped table-bordered">
+                  <thead>
+                     <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Book Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                     </tr>
+                     <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                     </tr>
+                     <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            
+      
+      <div class="left-bottom">
+         
+         <h3 id="price">Total Price:</h3>
+      </div>
+         
+              
     </div>
   );
   

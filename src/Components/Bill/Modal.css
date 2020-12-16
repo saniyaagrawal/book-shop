@@ -1,0 +1,14 @@
+/* .modal-bg {
+    text-align: center;
+    padding-left: 20%;
+} */
+
+.abc {
+    display: flex;
+    /* justify-content: space-between; */
+    /* padding-right: 50%; */
+    flex-wrap: wrap;
+    margin-left: 10%;
+    align-items: center;
+    margin-top: -1%;
+  }

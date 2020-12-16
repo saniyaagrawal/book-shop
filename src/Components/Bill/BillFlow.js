@@ -16,7 +16,7 @@ const BillFlow = () => {
 
   return (
     <>
-      <div className="background">
+      <div>
           {screen===1 ? <Type handleSubmit={()=>handleSubmit()} /> 
           : screen===2 ? <Details handleSubmit={()=>handleSubmit()} /> 
           : <Bill handleSubmit={()=>handleSubmit()} />}
