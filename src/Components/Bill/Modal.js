@@ -3,6 +3,16 @@ import {Modal, Button} from 'react-bootstrap'
 import './Modal.css'
 
 function MyVerticallyCenteredModal(props) {
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      // axios
+      //   .get('http://localhost:3001/:id')
+      //   .then((response) => console.log('get book'))
+      //   .catch(err => {
+      //     console.error(err);
+      //   });
+    };
     return (
       <Modal className="modal-bg"
         {...props}
@@ -12,16 +22,16 @@ function MyVerticallyCenteredModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter" >
-            Feedback
+            Add Book and Quantity
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body">
           
-        <span>Name  <input type="text" name="feedback-text" id="feedback-text" className="feedback-box"/></span><br/><br/>
-        <span>E-mail <input type="text" name="feedback-email" id="feedback-email"  className="feedback-box"/></span><br/><br/>
+        <span>Book Id! <input type="text" name="feedback-text" id="feedback-text" className="feedback-box" required/></span><br/><br/>
+        <span>Quantity <input type="text" name="feedback-email" id="feedback-email"  className="feedback-box" required/></span><br/><br/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.onHide}>Submit</Button>
+          <Button variant="secondary" onClick={() => handleSubmit}>Submit</Button>
         </Modal.Footer>
       </Modal>
      );
@@ -31,9 +41,12 @@ function MyVerticallyCenteredModal(props) {
     const [modalShow, setModalShow] = React.useState(false);
     return (
       <>
+      <div className="abc">
         <Button variant="secondary" onClick={() => setModalShow(true)}>
-          Feedback
+          Add
         </Button>
+      </div>
+        
   
         <MyVerticallyCenteredModal
           show={modalShow}
