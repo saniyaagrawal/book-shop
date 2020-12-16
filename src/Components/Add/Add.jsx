@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { TextField, Link } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import Button from "@material-ui/core/Button";
 import axios from 'axios';
 import "./Add.css";
+import { Link, Redirect } from "react-router-dom";
 
 const Add = () => {
   const [name, setName] = useState("");
@@ -18,7 +19,7 @@ const Add = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const store_id=1;
+    const store_id=parseInt(localStorage.getItem("store_id"));
     const book = {
       name,
       description,
@@ -33,7 +34,7 @@ const Add = () => {
 
     axios
       .post('http://localhost:3001/add', book)
-      .then(() => console.log(book))
+      .then(() => {})
       .catch(err => {
         console.error(err);
       });
@@ -53,6 +54,7 @@ const Add = () => {
                   variant="outlined"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -65,6 +67,7 @@ const Add = () => {
                   variant="outlined"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -77,6 +80,7 @@ const Add = () => {
                   variant="outlined"
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -89,6 +93,7 @@ const Add = () => {
                   variant="outlined"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -101,6 +106,7 @@ const Add = () => {
                   variant="outlined"
                   value={quantityPurchase}
                   onChange={(e) => setQuantityPurchase(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -113,6 +119,7 @@ const Add = () => {
                   variant="outlined"
                   value={quantityIssue}
                   onChange={(e) => setQuantityIssue(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -125,6 +132,7 @@ const Add = () => {
                   variant="outlined"
                   value={genre}
                   onChange={(e) => setGenre(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -141,18 +149,11 @@ const Add = () => {
               </div>
             </div>
             <div className="add_row">
-              
-              {/* <Link to="/"> */}
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                startIcon={<SaveIcon />}
-                onClick={handleSubmit}
-              >
-                Save
-              </Button>
-              {/* </Link> */}
+            <Link to='/'>
+             <div className="btn btn-primary" onChange={handleSubmit}>
+               Save
+               </div>
+            </Link>
             </div>
           </div>
         </form>

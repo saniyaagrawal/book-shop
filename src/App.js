@@ -14,9 +14,7 @@ function App() {
       <BrowserRouter>
         <Navbarr />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+          
           <Route path="/add">
             <Add />
           </Route>
@@ -29,7 +27,10 @@ function App() {
           <Route path="/signup">
             <Signup />
           </Route>
-          {/* <Redirect to="/" /> */}
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     </div>

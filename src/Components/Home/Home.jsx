@@ -6,25 +6,24 @@ import IconButton from "@material-ui/core/IconButton";
 import "./Home.css";
 import MyCard from "./MyCard";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [keyword, setKeyword] = useState("");
 
-  useEffect((e)=>{
+  const store_id=localStorage.getItem("store_id");
+  useEffect(()=>{
     const run=async () => { await axios.get('http://localhost:3001/')
-      .then(response => { setBooks(response.data)
-         console.log(response.data)
-      })
+      .then(response => setBooks(response.data.filter((b)=>b.store_id===parseInt(store_id)) ))
       .catch(error => {
-        console.log(error)
+        console.log(error);
       })
     }
-    return ()=>{
-        run();
-    }
+    run();
   },[])
 
+  console.log(store_id);
   const handleInput = (e) => {
     e.preventDefault();
     setKeyword(e.target.value);
@@ -70,6 +69,7 @@ const Home = () => {
            ))}
            </div>
           </div>
+
         </div>
       </div>
     // </>

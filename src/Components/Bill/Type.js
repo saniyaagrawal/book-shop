@@ -2,9 +2,14 @@ import React, { useState } from "react";
  import "./Type.css";
 import { Button } from '@material-ui/core';
 
-const Type = ({ handleSubmit }) => {
+const Type = ({ handleSubmit, changeObject }) => {
   const [type, setType] = useState(1);
-console.log('hi')
+
+  // const buttonClick =(value)=>{
+  //   handleSubmit
+  //   changeObject
+  // }
+
   return (
     <>
       <div className="background">
