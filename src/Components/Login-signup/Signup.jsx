@@ -1,30 +1,46 @@
 import "./login.css";
 import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import axios from 'axios';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    password2: ""
+    password2: "",
+    mobile_no:"",
+    store_id:""
   });
-  // const onChange = (e) =>
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (password !== password2) {
-  //     setAlert("Passwords do not match", "danger");
-  //   } else {
-  //     register({ name, email, password });
-  //   }
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post('http://localhost:3001/signup', formData)
+      .then(() => alert('Registration complete'))
+      .catch(err => {
+        alert('Invalid registration');
+        console.error(err);
+      });
+  };
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (password !== password2) {
+      alert("Passwords do not match");
+    } else {
+      handleSubmit(e)
+    }
+  };
 
   // if (isAuthenticated) {
   //   return <Redirect to="/home" />;
   // }
-  const { name, email, password, password2 } = formData;
+  const { name, email, password, password2, store_id, mobile_no } = formData;
   return (
     <>
       <div className="background signup_page">
@@ -47,8 +63,8 @@ const Signup = () => {
                 placeholder="Name"
                 name="name"
                 className="textbox"
-                // value={name}
-                // onChange={onChange}
+                value={name}
+                onChange={onChange}
               />
             </div>
             <div className="form-group">
@@ -57,8 +73,18 @@ const Signup = () => {
                 placeholder="Email Address"
                 name="email"
                 className="textbox"
-                // value={email}
-                // onChange={onChange}
+                value={email}
+                onChange={onChange}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Mobile No."
+                name="mobile_no"
+                className="textbox"
+                value={mobile_no}
+                onChange={onChange}
               />
             </div>
             <div className="form-group">
@@ -67,8 +93,8 @@ const Signup = () => {
                 placeholder="Password"
                 name="password"
                 className="textbox"
-                // value={password}
-                // onChange={onChange}
+                value={password}
+                onChange={onChange}
               />
             </div>
             <div className="form-group">
@@ -77,11 +103,25 @@ const Signup = () => {
                 placeholder="Confirm Password"
                 name="password2"
                 className="textbox"
-                // value={password2}
-                // onChange={onChange}
+                value={password2}
+                onChange={onChange}
               />
             </div>
-            <input type="submit" className="btn btn-primary" value="Register" />
+            <div className="form-group">
+              <input
+                type="integer"
+                placeholder="Store Id"
+                name="store_id"
+                className="textbox"
+                value={store_id}
+                onChange={onChange}
+              />
+            </div>
+            <Link to='/login'>
+             <div className="btn btn-primary" onChange={onSubmit}>
+               Register
+               </div>
+            </Link>
           </form>
           <br></br>
           <p className="my-1">

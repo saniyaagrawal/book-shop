@@ -12,7 +12,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300,
-    minWidth: 250
+    minWidth: 300,
+    height: 400
   },
   media: {
     height: 0,
@@ -38,12 +39,11 @@ const MyCard = ({id, book}) => {
         action={
           <div className="price">
             <div className='shelf'>
-            G4
-            {/* {book.shelf} */}
+            {/* G4 */}
+            {book.shelf_number}
           </div>
             <div className='shelf'>
-            Rs.500
-            {/* {book.shelf} */}
+            Rs{book.price}
           </div>
           </div>
         }
@@ -53,13 +53,13 @@ const MyCard = ({id, book}) => {
       <CardMedia
         className={classes.media}
         image={images[0]}
-        // title={book.name}
+        title={book.name}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {/* {book.description} */}
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {book.description}
+          {/* This impressive paella is a perfect party dish and a fun meal to cook together with your
+          guests. Add 1 cup of frozen peas along with the mussels, if you like. */}
         </Typography>
       </CardContent>
     </Card>

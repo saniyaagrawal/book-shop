@@ -1,9 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React,{useState, useEffect} from "react";
+import { Link, Redirect } from "react-router-dom";
+import axios from 'axios';
 import "./login.css";
 
 const Login = () => {
+  // const [store_id, setStore_id]=useState("");
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const { email, password } = formData;
+
+
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post('http://localhost:3001/login', formData)
+      .then((response) => console.log(response.data))
+      .catch(err => {
+        alert('Invalid Login');
+      });
+    
+  };
+  
   return (
     <>
       <div className="background login_page">
@@ -23,8 +48,8 @@ const Login = () => {
                 placeholder="Email Address"
                 name="email"
                 className="textbox"
-                // value={email}
-                // onChange={onChange}
+                value={email}
+                onChange={onChange}
                 required
               />
             </div>
@@ -34,12 +59,17 @@ const Login = () => {
                 placeholder="Password"
                 name="password"
                 className="textbox"
-                // value={password}
-                // onChange={onChange}
+                value={password}
+                onChange={onChange}
                 minLength="6"
+                required
               />
             </div>
-            <input type="submit" className="btn btn-primary" value="Login" />
+            <Link to='/'>
+             <div className="btn btn-primary" onChange={handleSubmit}>
+               Login
+               </div>
+            </Link>
           </form>
           <br></br>
           <br></br>

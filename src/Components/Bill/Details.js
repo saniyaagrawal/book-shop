@@ -8,7 +8,7 @@ const Details = ({ handleSubmit }) => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [author, setAuthor] = useState("");
-  const [price, setPrice] = useState("");
+  // const [price, setPrice] = useState("");
 
   return (
     <>
@@ -25,6 +25,7 @@ const Details = ({ handleSubmit }) => {
                   variant="outlined"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -37,6 +38,7 @@ const Details = ({ handleSubmit }) => {
                   variant="outlined"
                   value={detail}
                   onChange={(e) => setDetail(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -49,6 +51,7 @@ const Details = ({ handleSubmit }) => {
                   variant="outlined"
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
+                  required
                 />
               </div>
             </div>
