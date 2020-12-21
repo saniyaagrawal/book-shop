@@ -6,7 +6,12 @@
     align-items: center;
     justify-content: center;
   }
-  
+  .paybill{
+    /* padding-left: 40%; */
+    background: rgb(86, 148, 241);
+    border-radius: 2px;
+    
+  }
   body,
   html,
   #root {
@@ -95,6 +100,5 @@
 
   .billtable {
     padding: 5em;
-    border-radius: 2px;
-    border-color: white;
+    
   }

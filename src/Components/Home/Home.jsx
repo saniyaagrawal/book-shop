@@ -49,23 +49,23 @@ const Home = () => {
         </div>
         <div className="body">
           <div className="genre">
-            <h1 className="heading">Classics</h1>
+            <h1 className="heading">Romance</h1>
             <div className="cards">
-            {books.filter((d)=>d.genre.toLowerCase().includes('classic')).filter((c)=>c.name.toLowerCase().includes(keyword.toLowerCase())).map((book)=>(<div className='single_card'><MyCard key="1" id="1" book={book} /></div>
+            {books.filter((d)=>d.genre.toLowerCase().includes('roman')).filter((c)=>c.name.toLowerCase().includes(keyword.toLowerCase())).map((book)=>(<div className='single_card'><MyCard key="1" id="1" book={book} /></div>
            ))}
             </div>
           </div>
           <div className="genre">
-            <h1 className="heading">Novel</h1>
+            <h1 className="heading">Fiction</h1>
             <div className="cards">
             {books.filter((d)=>d.genre.toLowerCase().includes('fic')).filter((c)=>c.name.toLowerCase().includes(keyword.toLowerCase())).map((book)=>(<div className='single_card'><MyCard key="1" id="1" book={book} /></div>
            ))}
            </div>
           </div>
           <div className="genre">
-            <h1 className="heading">Detective and Mystery</h1>
+            <h1 className="heading">Classic</h1>
             <div className="cards">
-            {books.filter((d)=>d.genre.toLowerCase().includes('romance')).filter((c)=>c.name.toLowerCase().includes(keyword.toLowerCase())).map((book)=>(<div className='single_card'><MyCard key="1" id="1" book={book} /></div>
+            {books.filter((d)=>d.genre.toLowerCase().includes('class')).filter((c)=>c.name.toLowerCase().includes(keyword.toLowerCase())).map((book)=>(<div className='single_card'><MyCard key="1" id="1" book={book} /></div>
            ))}
            </div>
           </div>

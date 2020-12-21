@@ -7,7 +7,32 @@ import My_Modal from './Modal';
 import axios from 'axios';
 
 function Bill({ handleSubmit, setObject, object }) {
-  
+   const [mybooks, setMybooks]=useState([{
+      book_id:"1",
+      name:"Harry Potter",
+      quantity:"2",
+      price:"200"
+   },
+   {
+      book_id:"2",
+      name:"Half Girlfriend",
+      quantity:"4",
+      price:"350"
+   },
+   {
+      book_id:"3",
+      name:"Alchemist",
+      quantity:"7",
+      price:"400"
+   }
+]);
+   // const forceUpdate = React.useCallback(() => setMybooks(mybooks), []);
+
+   // useEffect(() => {
+   //    console.log("s")
+   //    // forceUpdate();
+   // }, [mybooks])
+   var total=950;
    const handleSubmitt =()=>{
       // handleSubmit()
       var newObj=object;
@@ -15,88 +40,79 @@ function Bill({ handleSubmit, setObject, object }) {
    //  this.onemonth=new Date(new Date().setDate(today.getDate()-30));
       newObj.time=2;
       newObj.store_id=localStorage.getItem("store_id");
-      // newObj.total=
-
+      newObj.total=total;
+      newObj.books=mybooks;
       setObject(newObj);
       
-      // console.log(today)
+      // console.log(object);
 
       axios
       .post('http://localhost:3001/bill', object)
-      .then(() => console.log(object))
+      .then(() => {})
       .catch(err => {
         console.error(err);
       });
+      alert('Bill Added');
+      // console.log(object);
     }
-   // console.log(object);
+   // console.log(mybooks);
   return (
+     
     <div className='bill_back'>
       <Typography style={{ padding: 16 }} variant="h3">
         Bill Screen
       </Typography>
 
-      <My_Modal object={object} setObject={setObject} />
+      <My_Modal object={object} setObject={setObject} mybooks={mybooks} setMybooks={setMybooks}/>
       <div className="add_row">
-              
-              {/* <Link to="/"> */}
-              <Button
+            </div>
+            
+            <div class="billtable">
+               <table class="table table-dark table-striped table-bordered">
+                  <thead>
+                     <tr>
+                        <th>Boook_id</th>
+                        <th>Book Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                  {/* {mybooks.map((x)=>{<div>
+                           <td>{x.book_id}</td>
+                           <td>{x.name}</td>
+                           <td>{x.quantity}</td>
+                           <td>{x.price}</td>
+                           </div>
+                        })} */}
+                        {/* {console.log(mybooks)} */}
+                        {/* {forceUpdate()} */}
+                     {mybooks.map((x)=>{return(<tr>
+                           <th scope="row">{x.book_id ? x.book_id: ''}</th>
+                           <td>{x.name ? x.name :""}</td>
+                           <td> {x.quantity ? x.quantity:""}</td>
+                           <td>{x.price ? x.price:"" && x.price?total=total+parseInt(x.price):''}</td>
+                           </tr>)
+                        })}
+                     
+                  </tbody>
+               </table>
+            </div>
+            
+      
+      <div class="right-bottom" style={{marginLeft:1100}}>
+         <h3 id="price">Total Price:{total}</h3>
+      </div>
+      <div style={{marginLeft:600}}>
+      <Button
                 variant="contained"
                 color="primary"
                 size="large"
                 startIcon={<SaveIcon />}
                 onClick={handleSubmitt}
               >
-                Save
+                Pay Bill
               </Button>
-              {/* </Link> */}
-            </div>
-            <div class="billtable">
-               <table class="table table-dark table-striped table-bordered">
-                  <thead>
-                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Book Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                      {object.books.map((x)=>(
-                        <div>
-                        <th scope="row">1</th>
-                        <td>{x.book_id}</td>
-                        {/* <td>{x.quantity}</td> */}
-                        {/* <td>{x.price}</td> */}
-                        </div>
-                       
-                        ))}
-                    
-                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                     </tr>
-                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                     </tr>
-                     <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-            
-      
-      <div class="left-bottom">
-         
-         <h3 id="price">Total Price:</h3>
       </div>
          
               
@@ -105,49 +121,4 @@ function Bill({ handleSubmit, setObject, object }) {
   
 }
 
-export default Bill;
-
-// import React, { useState } from "react";
-// //  import "./Bill.css";
-// import { Button, Modal } from "@material-ui/core";
-// import SaveIcon from "@material-ui/icons/Save";
-// import { render } from "@testing-library/react";
-
-// const Bill = () => {
-//   state = {
-//     isOpen: false
-//   };
-
-//   openModal = () => this.setState({ isOpen: true });
-//   closeModal = () => this.setState({ isOpen: false });
-//   render() {
-//     return (
-//       <>
-//         <div className="background">
-//           <Button
-//             variant="contained"
-//             color="primary"
-//             size="large"
-//             startIcon={<SaveIcon />}
-//             onClick={this.openModal}
-//           >
-//             Add Book!
-//           </Button>
-//           <Modal show={this.state.isOpen} onHide={this.closeModal}>
-//             <Modal.Header closeButton>
-//               <Modal.Title>Modal heading</Modal.Title>
-//             </Modal.Header>
-//             <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-//             <Modal.Footer>
-//               <Button variant="secondary" onClick={this.closeModal}>
-//                 Close
-//               </Button>
-//             </Modal.Footer>
-//           </Modal>
-//         </div>
-//       </>
-//     );
-//   }
-  
-// };
-// export default Bill;
+export default Bill; 

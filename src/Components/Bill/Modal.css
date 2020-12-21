@@ -7,8 +7,9 @@
     display: flex;
     /* justify-content: space-between; */
     /* padding-right: 50%; */
+    /* background-color: rgb(60, 157, 196); */
     flex-wrap: wrap;
-    margin-left: 10%;
+    margin-left: 640px;
     align-items: center;
     margin-top: -1%;
   }
